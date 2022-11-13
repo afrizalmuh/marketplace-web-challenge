@@ -12,6 +12,13 @@ module.exports = {
       colors: {
         'blue-1': '#2C6BCA',
         'yellow-1': '#EBCC24'
+      },
+      maxWidth: {
+        desk: '1440px'
+      },
+      width: {
+        desk: '1440px',
+        cont: '1318'
       }
     },
   },

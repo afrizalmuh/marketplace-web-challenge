@@ -13,7 +13,8 @@ const Login = () => {
 
   const [login, setLogin] = useState({
     email: '',
-    password: ''
+    password: '',
+    captcha: false
   })
 
   const handleLogin = () => {
@@ -22,8 +23,7 @@ const Login = () => {
   const handleChangeInput = (e) => {
     const newLogin = { ...login }
     newLogin[e.target.name] = e.target.value
-    console.log(newLogin)
-    //setLogin(newLogin)
+    setLogin(newLogin)
   }
   return (
     <div className='grid grid-cols-2 font-spacegrotesk text-blue-1'>
@@ -51,6 +51,7 @@ const Login = () => {
                   placeholder='E-Mail'
                   name="email"
                   label="email"
+                  value={login.email}
                   onChange={handleChangeInput}
                 />
               </div>
@@ -60,6 +61,7 @@ const Login = () => {
                   placeholder='Password'
                   name="password"
                   label="password"
+                  value={login.password}
                   onChange={handleChangeInput}
                 />
               </div>
@@ -72,11 +74,11 @@ const Login = () => {
                   <a className='truncate hover:underline' href="/">Forgot password?</a>
                 </div>
               </div>
-              <div className='pt-10 justify-center flex'>
+              {/* <div className='pt-10 justify-center flex'>
                 <ReCAPTCHA
                   sitekey="6Ld1X-ciAAAAAMWCFHZYvuK8BlITzysbd7Vb9GgO"
                 />
-              </div>
+              </div> */}
               <div className='pt-10'>
                 <button
                   className='w-[472px] h-[58px] bg-blue-1 text-white text-lg font-bold rounded-lg'
