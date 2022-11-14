@@ -5,6 +5,7 @@ import Browse from '../component/Browse'
 import SliderSection from '../component/SliderSection'
 import Slider from "react-slick";
 import accountLogo from '../asset/account-logo.jpg'
+import rectangleLogo from '../asset/rectangle-logo.png'
 import { CATEGORY_LIST } from '../dummyData'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
@@ -35,10 +36,13 @@ const Dashboard = () => {
   return (
     <>
       <div className='max-w-desk '>
-        <div className='bg-white shadow-xl justify-items-center'>
+        <div className='bg-white shadow-xl justify-items-center flex'>
+          <div className='absolute'>
+            <img src={rectangleLogo} alt="" />
+          </div>
           <header className='w-[1318px] mx-auto h-[80px] bg-white text-blue-1'>
             <div className='flex h-full justify-between items-center'>
-              <div className='bg-blue-1 flex'>
+              <div className='flex z-10'>
                 <div className='flex text-[40px] font-audiowide justify-center'>
                   <div className='text-blue-1 bg-white w-[107px] rounded-lg'>
                     <img src="" alt="" />
@@ -62,7 +66,7 @@ const Dashboard = () => {
             </div>
           </header>
         </div>
-        <div className='p-10'>
+        <div className='p-4'>
           <div className='w-[1312px] mx-auto'>
             <div className='bg-white shadow-2xl  mx-auto'>
               <SliderSection />
@@ -76,7 +80,7 @@ const Dashboard = () => {
               <div className=' pt-11 font-spacegrotesk text-blue-1'>
                 <Slider {...settings}>
                   {CATEGORY_LIST.map((item, key) =>
-                    <div key={key} className="relative w-full">
+                    <div key={key} className="relative w-full hover:scale-105 hover:duration-700 duration-700">
                       {/* <LazyLoadImage className='h-[14rem]' alt={item.title} src={item.thumbnail} /> */}
                       <img src={item.thumbnail} alt="" className='mx-auto' />
                       <h1 className='absolute bottom-7 left-10 text-4xl font-bold'>{item.title}</h1>

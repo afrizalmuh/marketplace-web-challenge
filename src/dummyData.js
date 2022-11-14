@@ -29,56 +29,56 @@ export const CATEGORY_LIST = [
 
 export const BROWSE_LIST = [
   {
-    title: 'Plain Basic T-Shirt - Oversized...',
+    title: 'Plain Basic T-Shirt - Oversized',
     rating: '4.6',
     price: 'Rp120.000,00',
     path: imgPath + '/browse/browse-1.png',
     sold: 234
   },
   {
-    title: 'Plain Basic T-Shirt - Oversized...',
+    title: 'Plain Basic T-Shirt - Oversized',
     rating: '4.6',
     price: 'Rp120.000,00',
     path: imgPath + '/browse/browse-1.png',
     sold: 234
   },
   {
-    title: 'Plain Basic T-Shirt - Oversized...',
+    title: 'Plain Basic T-Shirt - Oversized',
     rating: '4.6',
     price: 'Rp120.000,00',
     path: imgPath + '/browse/browse-1.png',
     sold: 234
   },
   {
-    title: 'Plain Basic T-Shirt - Oversized...',
+    title: 'Plain Basic T-Shirt - Oversized',
     rating: '4.6',
     price: 'Rp120.000,00',
     path: imgPath + '/browse/browse-1.png',
     sold: 234
   },
   {
-    title: 'Plain Basic T-Shirt - Oversized...',
+    title: 'Plain Basic T-Shirt - Oversized',
     rating: '4.6',
     price: 'Rp120.000,00',
     path: imgPath + '/browse/browse-1.png',
     sold: 234
   },
   {
-    title: 'Plain Basic T-Shirt - Oversized...',
+    title: 'Plain Basic T-Shirt - Oversized',
     rating: '4.6',
     price: 'Rp120.000,00',
     path: imgPath + '/browse/browse-1.png',
     sold: 234
   },
   {
-    title: 'Plain Basic T-Shirt - Oversized...',
+    title: 'Plain Basic T-Shirt - Oversized',
     rating: '4.6',
     price: 'Rp120.000,00',
     path: imgPath + '/browse/browse-1.png',
     sold: 234
   },
   {
-    title: 'Plain Basic T-Shirt - Oversized...',
+    title: 'Plain Basic T-Shirt - Oversized',
     rating: '4.6',
     price: 'Rp120.000,00',
     path: imgPath + '/browse/browse-1.png',

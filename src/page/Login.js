@@ -5,7 +5,7 @@ import googleLogo from '../asset/google-logo.jpg'
 import facebookLogo from '../asset/facebook-logo.jpg'
 import appleLogo from '../asset/apple-logo.jpg'
 import { useNavigate } from 'react-router-dom';
-import videoKogin from '../asset/video.mp4'
+import videoLogin from '../asset/video.mp4'
 
 const Login = () => {
 
@@ -29,7 +29,7 @@ const Login = () => {
     <div className='grid grid-cols-2 font-spacegrotesk text-blue-1'>
       <div className='relative w-full h-screen'>
         <video className='w-full h-full object-cover' autoPlay={true} muted loop={true} >
-          <source src={videoKogin} type="video/mp4" />
+          <source src={videoLogin} type="video/mp4" />
         </video>
         {/* <img src={loginLogo} alt="" className='w-full h-full bg-cover' /> */}
         <div className='absolute bottom-[100px] left-[64px] font-audiowide text-[96px] text-white'>Welcome Back</div>
