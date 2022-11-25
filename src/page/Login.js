@@ -6,6 +6,7 @@ import facebookLogo from '../asset/facebook-logo.jpg'
 import appleLogo from '../asset/apple-logo.jpg'
 import { useNavigate } from 'react-router-dom';
 import videoLogin from '../asset/video.mp4'
+import { BASE_URL } from "../api"
 
 const Login = () => {
 
@@ -14,24 +15,48 @@ const Login = () => {
   const [login, setLogin] = useState({
     email: '',
     password: '',
-    captcha: false
+    device_name: 'samsung A5'
   })
 
-  const handleLogin = () => {
-    navigateLogin('/dashboard')
+  const handleLogin = (e) => {
+    e.preventDefault()
+    fetchLogin(login)
   }
   const handleChangeInput = (e) => {
     const newLogin = { ...login }
     newLogin[e.target.name] = e.target.value
     setLogin(newLogin)
+    // console.log(login)
   }
+
+  const fetchLogin = async (loginNow) => {
+    const res = await fetch(`${BASE_URL}/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: loginNow.email,
+        password: loginNow.password,
+        device_name: loginNow.device_name
+      })
+    })
+    const data = await res.json()
+    handleApiLogin(data)
+    console.log(data)
+  }
+
+  const handleApiLogin = (data) => {
+    localStorage.setItem("token", JSON.stringify(data.token))
+    if (data.success === true) { navigateLogin('/dashboard') }
+  }
+
   return (
     <div className='grid grid-cols-2 font-spacegrotesk text-blue-1'>
       <div className='relative w-full h-screen'>
         <video className='w-full h-full object-cover' autoPlay={true} muted loop={true} >
           <source src={videoLogin} type="video/mp4" />
         </video>
-        {/* <img src={loginLogo} alt="" className='w-full h-full bg-cover' /> */}
         <div className='absolute bottom-[100px] left-[64px] font-audiowide text-[96px] text-white'>Welcome Back</div>
       </div>
       <div className='w-full'>
@@ -47,7 +72,7 @@ const Login = () => {
             <form action="" onSubmit={handleLogin}>
               <div className='relative w-[472px]'>
                 <i className="fa-solid fa-user absolute left-6 top-4 text-lg text-blue-500"></i>
-                <input type="email" className='outline-none bg-blue-100 w-full py-5 px-14 rounded-full placeholder:text-blue-500'
+                <input type="email" className='outline-none bg-blue-100 w-full py-3 px-14 rounded-full placeholder:text-blue-500'
                   placeholder='E-Mail'
                   name="email"
                   label="email"
@@ -57,7 +82,7 @@ const Login = () => {
               </div>
               <div className='relative w-[472px] top-8'>
                 <i className="fa-solid fa-unlock-keyhole absolute left-6 top-4 text-lg text-blue-500"></i>
-                <input type="password" className='outline-none bg-blue-100 w-full py-5 px-14 rounded-full placeholder:text-blue-500'
+                <input type="password" className='outline-none bg-blue-100 w-full py-3 px-14 rounded-full placeholder:text-blue-500'
                   placeholder='Password'
                   name="password"
                   label="password"
@@ -106,6 +131,7 @@ const Login = () => {
           <img src={appleLogo} alt="" className='w-12' />
         </div>
       </div>
+
     </div>
   )
 }

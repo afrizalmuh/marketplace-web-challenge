@@ -35,7 +35,7 @@ const SetModal = ({ setModal, dataModal }) => {
           </div>
         </div>
       </div> */}
-      <div className='fixed w-full h-full top-0 left-0 flex items-center justify-center z-50'>
+      {/* <div className='fixed w-full h-full top-0 left-0 flex items-center justify-center z-50'>
         <div className='absolute w-full h-full bg-white opacity-90' onClick={handleClose} />
         <div className='w-full md:w-[70%] 2xl:w-[73%] flex items-center bg-white border rounded-2xl p-12 z-50'>
           <img src={dataModal[0].path} alt="" className='w-full' />
@@ -52,7 +52,25 @@ const SetModal = ({ setModal, dataModal }) => {
               <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic laboriosam dolores fugit est temporibus. Porro impedit reiciendis recusandae. Voluptatum harum reiciendis asperiores voluptatem laboriosam tempora quo vitae debitis adipisci. Consequatur?</span>
             </div>
             <div className='flex justify-end pt-10'>
-              <button className='bg-[#B1B1B1] p-4 text-white rounded-lg font-spacegrotesk text-xl font-semibold'>Added to cart <i className="fa-solid fa-cart-shopping pl-4"></i></button>
+              <button className='bg-blue-1 focus:bg-[#B1B1B1] p-4 text-white rounded-lg font-spacegrotesk text-xl font-semibold'>Added to cart <i className="fa-solid fa-cart-shopping pl-4"></i></button>
+            </div>
+          </div>
+        </div>
+      </div> */}
+      <div className='fixed w-full h-full top-0 left-0 flex items-center justify-center z-50'>
+        <div className='absolute w-full h-full bg-white opacity-90' onClick={handleClose} />
+        <div className='w-full md:w-[70%] 2xl:w-[73%] flex items-center bg-white border rounded-2xl p-12 z-50'>
+          <img src={dataModal[0].img_url} alt="" className='w-ful' />
+          <div className='pl-10 flex flex-col bg-cover'>
+            <span className='font-audiowide text-3xl'>{dataModal[0].name}</span>
+            <div className='flex justify-between text-xl font-semibold py-5'>
+              <span className='text-blue-1'>Rp{dataModal[0].price}</span>
+            </div>
+            <div className='text-lg font-spacegrotesk'>
+              <span>{dataModal[0].description}</span>
+            </div>
+            <div className='flex justify-end pt-10'>
+              <button className='bg-blue-1 focus:bg-[#B1B1B1] p-4 text-white rounded-lg font-spacegrotesk text-xl font-semibold'>Added to cart <i className="fa-solid fa-cart-shopping pl-4"></i></button>
             </div>
           </div>
         </div>
