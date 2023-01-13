@@ -1,7 +1,8 @@
 import React from 'react'
 import starLogo from '../asset/star-logo.svg'
+import { formatPrice } from '../utils/formatPrice'
 
-const SetModal = ({ setModal, dataModal }) => {
+const ModalProduct = ({ setModal, dataModal }) => {
 
   const handleClose = () => {
     setModal(false)
@@ -64,7 +65,7 @@ const SetModal = ({ setModal, dataModal }) => {
           <div className='pl-10 flex flex-col bg-cover'>
             <span className='font-audiowide text-3xl'>{dataModal[0].name}</span>
             <div className='flex justify-between text-xl font-semibold py-5'>
-              <span className='text-blue-1'>Rp{dataModal[0].price}</span>
+              <span className='text-blue-1'>{formatPrice(dataModal[0].price)}</span>
             </div>
             <div className='text-lg font-spacegrotesk'>
               <span>{dataModal[0].description}</span>
@@ -79,4 +80,4 @@ const SetModal = ({ setModal, dataModal }) => {
   )
 }
 
-export default SetModal
+export default ModalProduct

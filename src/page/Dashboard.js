@@ -11,7 +11,6 @@ import { CATEGORY_LIST } from '../dummyData'
 import { Transition } from "@headlessui/react"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Categories from '../component/Categories'
-import Search from '../component/Search'
 
 
 const Dashboard = () => {
@@ -43,15 +42,11 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className='w-full lg:max-w-desk relative mx-auto'>
-
+      <div className='relative mx-auto'>
         <div className='bg-white shadow-xl '>
-          <div className='absolute'>
-            <img src={rectangleLogo} alt="" />
-          </div>
-
-          <header className='flex w-[1381px] h-[80px] bg-white text-blue-1'>
-            <div className='flex w-full h-full justify-between items-center'>
+          <div className='absolute 2xl:w-[650px] xl:w-1/4 h-[100px] border-t-[100px] border-t-blue-1 border-r-[75px] border-r-transparent'></div>
+          <header className='bg-white text-blue-1'>
+            <div className='flex max-w-desk h-[80px] mx-auto justify-between items-center'>
               <div className='flex z-10'>
                 <div className='flex text-[40px] font-audiowide justify-center'>
                   <div className='text-blue-1 bg-white w-[107px] rounded-lg'>
@@ -76,7 +71,7 @@ const Dashboard = () => {
           </header>
         </div>
 
-        <div className='p-4'>
+        <div className='pt-[20px]'>
           <div className='w-[1312px] mx-auto'>
             <div className='bg-white shadow-2xl mx-auto'>
               <SliderSection />
@@ -141,7 +136,7 @@ const Dashboard = () => {
                   </Transition>
                 </div>
               </div> */}
-              <Search />
+              {/* <Search /> */}
               <div>
                 <Browse />
               </div>

@@ -43,7 +43,7 @@ const SliderSection = () => {
   }
 
   useEffect(() => {
-    const barearToken = JSON.parse(localStorage.getItem('token'))
+    const barearToken = localStorage.getItem('token')
     fetchCategories(barearToken)
 
   }, [])

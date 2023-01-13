@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import loginLogo from '../asset/login-page.jpg'
 import ReCAPTCHA from "react-google-recaptcha";
 import googleLogo from '../asset/google-logo.jpg'
@@ -7,16 +7,22 @@ import appleLogo from '../asset/apple-logo.jpg'
 import { useNavigate } from 'react-router-dom';
 import videoLogin from '../asset/video.mp4'
 import { BASE_URL } from "../api"
+import ModalLogin from '../component/ModalLogin';
 
 const Login = () => {
 
   const navigateLogin = useNavigate();
-
+  const [modalLogin, setModalLogin] = useState(false)
+  const showModal = () => {
+    setModalLogin(true)
+  }
   const [login, setLogin] = useState({
-    email: '',
-    password: '',
+    email: 'user_1@gmail.com',
+    password: 'password123',
     device_name: 'samsung A5'
   })
+
+
 
   const handleLogin = (e) => {
     e.preventDefault()
@@ -26,28 +32,37 @@ const Login = () => {
     const newLogin = { ...login }
     newLogin[e.target.name] = e.target.value
     setLogin(newLogin)
-    // console.log(login)
   }
 
   const fetchLogin = async (loginNow) => {
-    const res = await fetch(`${BASE_URL}/login`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: loginNow.email,
-        password: loginNow.password,
-        device_name: loginNow.device_name
+    const bodyApi = {
+      email: loginNow.email,
+      password: loginNow.password,
+      device_name: loginNow.device_name
+    }
+
+    try {
+      const res = await fetch(`${BASE_URL}/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bodyApi)
       })
-    })
-    const data = await res.json()
-    handleApiLogin(data)
-    console.log(data)
+
+      if (res.status === 200) {
+        const data = await res.json()
+        handleApiLogin(data)
+      }
+    } catch (err) { console.log(err) }
   }
 
+  useEffect(() => {
+    localStorage.clear();
+  })
+
   const handleApiLogin = (data) => {
-    localStorage.setItem("token", JSON.stringify(data.token))
+    localStorage.setItem("token", data.token)
     if (data.success === true) { navigateLogin('/dashboard') }
   }
 
@@ -96,7 +111,7 @@ const Login = () => {
                     <input type="checkbox" />
                     <span className='pl-2'>Remember me</span>
                   </div>
-                  <a className='truncate hover:underline' href="/">Forgot password?</a>
+                  <div className='truncate hover:underline cursor-pointer' href="/">Forgot password?</div>
                 </div>
               </div>
               {/* <div className='pt-10 justify-center flex'>
@@ -120,7 +135,7 @@ const Login = () => {
                 <div className="w-full border-b border-gray-300"></div>
               </div>
               <div className="relative flex justify-center">
-                <span className="bg-white px-4 text-sm font-bold">or sign in</span>
+                <span className="bg-white px-4 text-sm ">or <a className='cursor-pointer font-bold' onClick={showModal}>sign up</a></span>
               </div>
             </div>
           </div>
@@ -131,23 +146,9 @@ const Login = () => {
           <img src={appleLogo} alt="" className='w-12' />
         </div>
       </div>
-
+      {modalLogin && <ModalLogin setModalLogin={setModalLogin} />}
     </div>
   )
 }
 
 export default Login
-
-
-// h2 {
-//   width: 100 %;
-//   text - align: center;
-//   border - bottom: 1px solid #000;
-//   line - height: 0.1em;
-//   margin: 10px 0 20px;
-// }
-
-// h2 span {
-//   background: #fff;
-//   padding: 0 10px;
-// }
